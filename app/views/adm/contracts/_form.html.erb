@@ -1,0 +1,28 @@
+<%= form_for contract, url: '' do |f| %>
+    <% if contract.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(contract.errors.count, "error") %> prohibited this orang from being saved:</h2>
+
+            <ul>
+                <% contract.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :abi %>
+        <%= f.text_area :abi, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.submit 'Save', class: 'btn btn-primary'  %>
+        <%= link_to 'Back', { controller: 'adm/contracts', action: 'index' }, class: 'btn btn-default' %>
+    </div>
+<% end %>

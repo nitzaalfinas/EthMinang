@@ -1,0 +1,36 @@
+<div>
+    <%= render partial: 'menu' %>
+    <div class="col-md-9">
+        <h1><%= @abi_part['name'] %></h1>
+        
+        <p><%= @abi_part %></p>
+        
+        <% if @abi_part['inputs'] && @abi_part['inputs'].length > 0 %>
+            <h2>Inputs</h2>
+            <form>
+                <% @abi_part['inputs'].each do |ainput| %>
+                    <div style="margin-bottom: 15px;">
+                        Name: <%= ainput['name'] %><br />
+                        Type: <%= ainput['type'] %><br />
+                        <input type="text" name="<%= ainput['name'] %>" />
+                    </div>
+                <% end %>
+                
+                <div>
+                    <button>Send</button>
+                </div>
+            </form>
+        <% end %>
+        
+        <% if @abi_part['outputs'] && @abi_part['outputs'].length > 0 %>
+            <h2>Outputs</h2>
+            <% @abi_part['outputs'].each do |aout| %>
+                <div style="margin-bottom: 15px;">
+                    Name: <%= aout['name'] %><br />
+                    Type: <%= aout['type'] %><br />
+                    Value: <%= aout['value'] %><br />
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>

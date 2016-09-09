@@ -1,0 +1,10 @@
+<div class="col-md-3">
+    <% ActiveSupport::JSON.decode(@contract.abi).each do |x| %>
+        <div style="margin-bottom: 10px;">
+            <a href="/contracts/<%= @contract.id %>/action?abi_part=<%= x.to_json %>"><%= x['name'] %></a>
+
+            <br />
+            <%#= x[inputs].length %>
+        </div>
+    <% end %>
+</div>

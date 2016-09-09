@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center">Contracts</h1>
+
+<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
+    <%= link_to 'New Contract', { controller: 'adm/contracts', action: 'new' }, class: 'btn btn-primary' %>
+</div>
+
+
+<% @contracts.each do |contract| %>
+    <div class="col-md-3" style="text-align: center">
+        <%= link_to contract.name, { controller: 'contracts', action: 'show', id: contract.id } %><br />
+        <%= link_to 'Edit', { controller: 'adm/contracts', action: 'edit', id: contract.id } %>
+    </div>
+<% end %>
+
+<br>
+
+

@@ -1,0 +1,15 @@
+<h1>Page#contracts</h1>
+<p>Find me in app/views/page/contracts.html.erb</p>
+
+<% @theJSON.each do |x| %>
+    <div style="margin-bottom: 10px;">
+        <h3><%= x[:name] %></h3>
+        <%= x %>
+        <br />
+        <%= x[:inputs].length %>
+    </div>
+<% end %>
+
+<script>
+$('#bs-example-navbar-collapse-1 [href="/page/contracts"]').parent().attr('class', 'active');
+</script>

@@ -1,0 +1,7 @@
+<h1>New Contract</h1>
+
+<%= render 'form', contract: @contract %>
+
+<script>
+$('#edit_contract_<%= @contract.id %>').attr('action', '/adm/contracts/<%= @contract.id %>')
+</script>

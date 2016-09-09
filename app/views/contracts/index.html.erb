@@ -1,0 +1,10 @@
+<h1 style="text-align: center">Contracts</h1>
+
+
+<% @contracts.each do |contract| %>
+    <div class="col-md-3" style="text-align: center">
+        <%= link_to contract.name, { controller: 'contracts', action: 'show', id: contract.id } %><br />
+    </div>
+<% end %>
+
+<br>
