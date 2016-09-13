@@ -6,6 +6,9 @@
 
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<script type="text/javascript" src="/web3.js"></script>
+
 </head>
 
 <body>
@@ -25,7 +28,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/page/wallets">Wallet <span class="sr-only">(current)</span></a></li>
+                <li>
+                    <%= link_to 'Wallet <span class="sr-only">(current)</span>'.html_safe, { controller: 'page', action: 'wallets' } %>
+                    <!-- <a href="/page/wallets">Wallet <span class="sr-only">(current)</span></a> -->
+                </li>
                 <li><a href="#">Send</a></li>
                 <li>
                     <a href="/contracts/index">Contracts</a>

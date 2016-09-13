@@ -1,6 +1,27 @@
 <h1>Page#wallets</h1>
-<p>
-	<% @keys.each do |k| %>
-		<%= k[37..76] %><br />
-	<% end %>
-</p>
+
+<div class="col-md-24">
+	<a href="/page/wallets/new" class="btn btn-primary">New Wallet</a>
+</div>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Wallet</th>
+			<th>Balance</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @i = 0 %>
+		<% @keys.each do |k| %>
+			<% if(k != '.' && k != '..') %>
+				<tr>
+					<td><%= (@i+1) %></td>
+					<td><%= k[37..76] %></td>
+					<td><%= eth_getBalance(k[37..76]) %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,1 @@
+system('geth --testnet')

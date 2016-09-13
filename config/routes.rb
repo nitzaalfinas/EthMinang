@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
     post 'home/geth_run' => 'home#geth_run'
 
-    get 'page/wallets'
-    post 'page/run_command' => 'page#run_command'
+    get  'page/wallets/index'   => 'page#wallets'
+    get  'page/wallets/new'     => 'page#wallets_new'
+    post 'page/wallets/new'     => 'page#wallets_new_post'
+    #post 'page/run_command'   => 'page#run_command'
+    get  'page/get_param/index' => 'page#get_param_index'
 
     get 'contracts/index'      => 'contracts#index'
     get 'contracts/:id'        => 'contracts#show'
