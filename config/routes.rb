@@ -2,6 +2,8 @@ Rails.application.routes.draw do
     
     root to: 'home#index'
 
+    post 'home/geth_run' => 'home#geth_run'
+
     get 'page/wallets'
     post 'page/run_command' => 'page#run_command'
     
