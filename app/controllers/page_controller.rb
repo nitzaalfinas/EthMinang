@@ -1,7 +1,9 @@
 class PageController < ApplicationController
 
+    include ApplicationHelper
+
     def wallets
-    	@keys = Dir.entries("/Volumes/NZCARD/EthData/testnet/keystore")
+    	@keys = Dir.entries(eth_keystore_dir)
     end
 
     def wallets_new

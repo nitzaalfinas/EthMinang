@@ -1,0 +1,2 @@
+class GethOption < ApplicationRecord
+end
