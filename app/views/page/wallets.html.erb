@@ -10,18 +10,22 @@
 			<th>#</th>
 			<th>Wallet</th>
 			<th>Balance</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @i = 0 %>
-		<% @keys.each do |k| %>
-			<% if(k != '.' && k != '..') %>
+		<% @keys['result'].each do |k| %>
+
 				<tr>
 					<td><%= (@i+1) %></td>
-					<td><%= k[37..76] %></td>
-					<td><%= eth_getBalance(k[37..76]) %></td>
+					<td><%= k %></td>
+					<td><%= eth_getBalance(k) %></td>
+					<td>
+						<%= link_to 'Send Money', { action: 'wallets_send_money', from_address: k[37..76] }, { class: 'btn btn-primary' } %>
+					</td>
 				</tr>
-			<% end %>
+
 		<% end %>
 	</tbody>
 </table>

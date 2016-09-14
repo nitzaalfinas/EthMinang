@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="form-horizontal">
+        <%= form_tag '/page/wallets/send_money' do %>
+            <div class="form-group">
+                <label for="from" class="col-md-2">From</label>
+                <div class="col-md-10">
+                    <input type="text" name="_from" value="<%= @from_address %>" placeholder="Address" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="from" class="col-md-2">To</label>
+                <div class="col-md-10">
+                    <input type="text" name="_from" placeholder="Address" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="from" class="col-md-2">Amount</label>
+                <div class="col-md-10">
+                    <input type="text" name="_amount" placeholder="Amount" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button class="btn btn-primary">Send</button>
+                    <%= link_to 'Cancel', { action: 'wallets' }, { class: 'btn btn-default' } %>
+                </div>
+
+            </div>
+        <% end %>
+    </div>
+</div>

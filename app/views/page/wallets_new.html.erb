@@ -2,22 +2,24 @@
     <div class="form-horizontal">
         <%= form_tag '/page/wallets/new' do %>
             <div class="form-group">
-                <label class="col-md-3">Password</label>
-                <div class="col-md-9">
+                <label class="col-md-2">Password</label>
+                <div class="col-md-10">
                     <input type="password" class="form-control" />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-md-3">Password Confirmation</label>
-                <div class="col-md-9">
+                <label class="col-md-2">Password Confirmation</label>
+                <div class="col-md-10">
                     <input type="password" class="form-control" />
                 </div>
             </div>
 
-            <div class="btn-toolbar">
-                <input type="submit" value="Send" class="btn btn-primary" />
-                <%= link_to 'Cancel', { controller: 'page', action: 'wallets' }, { class: 'btn btn-default' } %>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Send" class="btn btn-primary" />
+                    <%= link_to 'Cancel', { controller: 'page', action: 'wallets' }, { class: 'btn btn-default' } %>
+                </div>
             </div>
         <% end %>
     </div>

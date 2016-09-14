@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
     post 'home/geth_run' => 'home#geth_run'
 
-    get  'page/wallets/index'   => 'page#wallets'
-    get  'page/wallets/new'     => 'page#wallets_new'
-    post 'page/wallets/new'     => 'page#wallets_new_post'
+    get  'page/wallets/index'      => 'page#wallets'
+    get  'page/wallets/new'        => 'page#wallets_new'
+    post 'page/wallets/new'        => 'page#wallets_new_post'
+    get  'page/wallets/send_money' => 'page#wallets_send_money'
     #post 'page/run_command'   => 'page#run_command'
-    get  'page/get_param/index' => 'page#get_param_index'
+    get  'page/get_param/index'    => 'page#get_param_index'
 
     get 'contracts/index'      => 'contracts#index'
     get 'contracts/:id'        => 'contracts#show'

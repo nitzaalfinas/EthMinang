@@ -3,14 +3,18 @@ class PageController < ApplicationController
     include ApplicationHelper
 
     def wallets
-    	@keys = Dir.entries(eth_keystore_dir)
+        @rpc = `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' localhost:8545`
+        @keys = JSON.parse(@rpc)
     end
 
     def wallets_new
     end
 
     def wallets_new_post
+    end
 
+    def wallets_send_money
+        @from_address = params[:from_address]
     end
 
     def run_command
