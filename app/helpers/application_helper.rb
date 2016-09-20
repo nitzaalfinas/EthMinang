@@ -55,6 +55,6 @@ module ApplicationHelper
         @res = `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["#{theAddress}","latest"],"id":74}' localhost:8545`
         @reshash = JSON.parse(@res)
         #@reshash['result']
-        @reshash['result'].to_i(16) / 1000000000000000000
+        @reshash['result'].to_i(16).to_f / 1000000000000000000
     end
 end
