@@ -37,8 +37,8 @@ class PageController < ApplicationController
 
         # UNLOCK
         # https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal_unlockaccount
-        puts 'curl -X POST --data \'{"jsonrpc":"2.0","method":"personal_unlockaccount","params":["'+ @from+'", "'+@password+'", 30 }],"id":1}\' localhost:8545'
-        @unlock = 'curl -X POST --data \'{"jsonrpc":"2.0","method":"personal_unlockaccount","params":["'+ @from+'", "'+@password+'", 30 }],"id":1}\' localhost:8545'
+        puts 'curl -X POST --data \'{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["'+ @from+'", "'+@password+'", 30 ],"id":1}\' localhost:8545'
+        @unlock = 'curl -X POST --data \'{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["'+ @from+'", "'+@password+'", 30 ],"id":1}\' localhost:8545'
         @rpc_unlock = %x[#{@unlock}]
 
         puts 'curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{ "from": "'+ @from+'", "to": "'+@to+'", "value": "'+@amount+'" }],"id":2}\' localhost:8545'
