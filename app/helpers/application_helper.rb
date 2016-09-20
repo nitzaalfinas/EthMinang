@@ -5,6 +5,13 @@ module ApplicationHelper
         Gem::Platform.local.os
     end
 
+    def geth_is_running_or_no
+        @grep = %x[pgrep -lf geth]
+        if @grep.size == 0
+            redirect_to '/home/geth_is_not_running'
+        end
+    end
+
     def tesnet_or_real
         @gop = GethOption.where(key: 'testnet').first
         if @gop
@@ -45,6 +52,8 @@ module ApplicationHelper
     end
 
     def eth_getBalance(theAddress)
-        `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["#{theAddress}","latest"],"id":74}' localhost:8545`
+        @res = `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["#{theAddress}","latest"],"id":74}' localhost:8545`
+        @reshash = JSON.parse(@res)
+        @reshash['result']
     end
 end

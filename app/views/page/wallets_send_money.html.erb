@@ -1,6 +1,8 @@
-<div class="container-fluid">
+<h1>WALLETS&nbsp;&nbsp;<small>Send</small></h1>
+<br /><br /><br />
+<div class="col-md-12">
     <div class="form-horizontal">
-        <%= form_tag '/page/wallets/send_money' do %>
+        <%= form_tag '/page/wallets/send_money_post' do %>
             <div class="form-group">
                 <label for="from" class="col-md-2">From</label>
                 <div class="col-md-10">
@@ -11,14 +13,15 @@
             <div class="form-group">
                 <label for="from" class="col-md-2">To</label>
                 <div class="col-md-10">
-                    <input type="text" name="_from" placeholder="Address" class="form-control" />
+                    <input type="text" name="_to" placeholder="Address" class="form-control" />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="from" class="col-md-2">Amount</label>
                 <div class="col-md-10">
-                    <input type="text" name="_amount" placeholder="Amount" class="form-control" />
+                    <input type="text" id="amount_number" placeholder="Amount" class="form-control" onkeyup="toHex()" />
+                    <input type="hidden" name="_amount" id="amount_hex" />
                 </div>
             </div>
 
@@ -27,8 +30,14 @@
                     <button class="btn btn-primary">Send</button>
                     <%= link_to 'Cancel', { action: 'wallets' }, { class: 'btn btn-default' } %>
                 </div>
-
             </div>
         <% end %>
     </div>
 </div>
+
+<script type="text/javascript">
+function toHex() {
+    var theVal = parseInt($('#amount_number').val());
+    $('#amount_hex').val(theVal.toString(16));
+}
+</script>

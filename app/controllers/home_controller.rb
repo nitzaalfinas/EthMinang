@@ -26,9 +26,7 @@ class HomeController < ApplicationController
         end
     end
 
-    def geth_run
-    	#system(params[:geth_command])
-    end
-
+	def geth_is_not_running
+	end
 
 end
