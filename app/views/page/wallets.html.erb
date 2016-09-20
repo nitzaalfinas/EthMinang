@@ -22,13 +22,14 @@
 	</thead>
 	<tbody>
 		<% @keys['result'].each do |k| %>
-				<tr>
-					<td><%= k %></td>
-					<td><%= eth_getBalance(k) %> wei</td>
-					<td>
-						<%= link_to 'Send', { action: 'wallets_send_money', from_address: k }, { class: 'btn btn-primary' } %>
-					</td>
-				</tr>
+			<% @ether_balance = eth_getEtherBalance(k) %>
+			<tr>
+				<td><%= k %></td>
+				<td><%= @ether_balance %> ether</td>
+				<td>
+					<%= link_to 'Send', { action: 'wallets_send_money', from_address: k, ether_balance: @ether_balance }, { class: 'btn btn-primary' } %>
+				</td>
+			</tr>
 		<% end %>
 	</tbody>
 </table>

@@ -18,9 +18,19 @@
             </div>
 
             <div class="form-group">
+                <label for="from" class="col-md-2">Balance</label>
+                <div class="col-md-10">
+                    <%= @ether_balance %> ether
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="from" class="col-md-2">Amount</label>
                 <div class="col-md-10">
-                    <input type="text" id="amount_number" placeholder="Amount" class="form-control" onkeyup="toHex()" />
+                    <div class="input-group">
+                        <input type="text" id="amount_number" placeholder="Amount" class="form-control" onkeyup="toHex()" />
+                        <span class="input-group-addon">ether</span>
+                    </div>
                     <input type="hidden" name="_amount" id="amount_hex" />
                 </div>
             </div>

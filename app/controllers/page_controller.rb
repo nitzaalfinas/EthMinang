@@ -26,6 +26,7 @@ class PageController < ApplicationController
 
     def wallets_send_money
         @from_address = params[:from_address]
+        @ether_balance = params[:ether_balance]
     end
 
     def wallets_send_money_post

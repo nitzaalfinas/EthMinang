@@ -51,7 +51,7 @@ module ApplicationHelper
         @keluar
     end
 
-    def eth_getBalance(theAddress)
+    def eth_getEtherBalance(theAddress)
         @res = `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["#{theAddress}","latest"],"id":74}' localhost:8545`
         @reshash = JSON.parse(@res)
         #@reshash['result']
