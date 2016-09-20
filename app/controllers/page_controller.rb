@@ -38,15 +38,16 @@ class PageController < ApplicationController
         # UNLOCK
         # https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal_unlockaccount
         @unlock = 'curl -X POST --data \'{"jsonrpc":"2.0","method":"personal_unlockaccount","params":["'+ @from+'", "'+@password+'", 30 }],"id":1}\' localhost:8545'
+        @rpc_unlock = %x[#{@unlock}]
 
-        puts 'curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{ "from": "'+ @from+'", "to": "'+@to+'", "value": "'+@amount+'" }],"id":1}\' localhost:8545'
-        @send = 'curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{ "from": "'+ @from+'", "to": "'+@to+'", "value": "'+@amount+'" }],"id":1}\' localhost:8545'
+        puts 'curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{ "from": "'+ @from+'", "to": "'+@to+'", "value": "'+@amount+'" }],"id":2}\' localhost:8545'
+        @send = 'curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{ "from": "'+ @from+'", "to": "'+@to+'", "value": "'+@amount+'" }],"id":2}\' localhost:8545'
 
         #@rpc = `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{ "from": "#{@from}", "to", "#{@to}", "value": "#{@amount}" }],"id":1}' localhost:8545`
 
-        @rpc = %x[#{@send}]
+        @rpc_send = %x[#{@send}]
 
-        puts @rpc
+        puts @rpc_send
 
         #@keys = JSON.parse(@rpc)
         #render json: @keys
