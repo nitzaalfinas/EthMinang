@@ -90,6 +90,17 @@
         </div>
         <div class="the_result"></div>
     </form>
+
+    <form class="form-group" id="eth_getCompilers">
+        <label>eth_getCompilers</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('eth_getCompilers'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
 </div>
 
 <script type="text/javascript">
@@ -101,6 +112,7 @@ $('#eth_protocolVersion [name="the_name"]').val('curl -X POST --data \'{"jsonrpc
 $('#eth_syncing [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}\' localhost:8545');
 $('#eth_coinbase [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}\' localhost:8545');
 $('#eth_mining [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}\' localhost:8545');
+$('#eth_getCompilers [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_getCompilers","params":[],"id":1}\' localhost:8545');
 
 
 

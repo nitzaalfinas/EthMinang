@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     get  'api_command/index'    => 'api_command#index'
     post 'api_command/run_this' => 'api_command#run_this'
 
+    get 'compile/index' => 'compile#index'
+
     namespace :adm do
         resources :contracts
 
