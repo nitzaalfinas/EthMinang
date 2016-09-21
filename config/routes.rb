@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get 'contracts/:id'        => 'contracts#show'
     get 'contracts/:id/action' => 'contracts#action_id'
 
+    get  'api_command/index'    => 'api_command#index'
+    post 'api_command/run_this' => 'api_command#run_this'
 
     namespace :adm do
         resources :contracts

@@ -1,0 +1,129 @@
+<div class="container">
+    <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC" target="_blank">
+        <h1>JSON RPC</h1>
+    </a>
+
+    <form class="form-group" id="web3_clientVersion">
+        <label>web3_clientVersion</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('web3_clientVersion'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+
+    <form class="form-group" id="net_version">
+        <label>net_version</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('net_version'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+
+    <form class="form-group" id="net_listening">
+        <label>net_listening</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('net_listening'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+
+    <form class="form-group" id="net_peerCount">
+        <label>net_peerCount</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('net_peerCount'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+
+    <form class="form-group" id="eth_protocolVersion">
+        <label>eth_protocolVersion</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('eth_protocolVersion'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+
+    <form class="form-group" id="eth_syncing">
+        <label>eth_syncing</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('eth_syncing'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+
+    <form class="form-group" id="eth_coinbase">
+        <label>eth_coinbase</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('eth_coinbase'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+
+    <form class="form-group" id="eth_mining">
+        <label>eth_mining</label>
+        <div class="input-group">
+            <input type="text" name="the_name" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="jalankan('eth_mining'); return false;">Go!</button>
+            </span>
+        </div>
+        <div class="the_result"></div>
+    </form>
+</div>
+
+<script type="text/javascript">
+$('#web3_clientVersion [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}\' localhost:8545');
+$('#net_version [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}\' localhost:8545');
+$('#net_listening [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}\' localhost:8545');
+$('#net_peerCount [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}\' localhost:8545');
+$('#eth_protocolVersion [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}\' localhost:8545');
+$('#eth_syncing [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}\' localhost:8545');
+$('#eth_coinbase [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}\' localhost:8545');
+$('#eth_mining [name="the_name"]').val('curl -X POST --data \'{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}\' localhost:8545');
+
+
+
+function jalankan(theId) {
+    $.ajax({
+        url: '/api_command/run_this',
+        type: 'POST',
+        data: $('#'+theId).serialize(),
+        success: function(response) {
+            $('#'+theId+' .the_result').html(response);
+        }
+    });
+}
+
+(function(){
+    jalankan('web3_clientVersion');
+    jalankan('net_version');
+    jalankan('net_listening');
+    jalankan('net_peerCount');
+    jalankan('eth_protocolVersion');
+    jalankan('eth_syncing');
+    jalankan('eth_coinbase');
+    jalankan('eth_mining');
+})()
+
+</script>
