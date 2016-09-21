@@ -1,0 +1,20 @@
+<div class="container">
+    <form class="form-group" id="compile_form">
+        <textarea name="the_name" class="form-control"></textarea>
+        <button class="btn btn-primary" onclick="jalankan(); return false;">Compile</button>
+    </form>
+    <div class="the_result"></div>
+</div>
+
+<script type="text/javascript">
+function jalankan(theId) {
+    $.ajax({
+        url: '/compile/this_code',
+        type: 'POST',
+        data: $('form#compile_form').serialize(),
+        success: function(response) {
+            $('#compile_form .the_result').html(response);
+        }
+    });
+}
+</script>
